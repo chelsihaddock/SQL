@@ -1,0 +1,42 @@
+--Create a store database
+
+CREATE TABLE store(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, color TEXT, quantity INTEGER);
+
+INSERT INTO store VALUES 
+(1, 'tshirt', 15.00, 'blue', 10),
+(2, 'jacket', 30.00, 'denim', 8),
+(3, 'socks', 5.00, 'black', 15),
+(4, 'boots', 50.00, 'brown', 10),
+(5, 'hat', 10.00, 'brown', 12),
+(6, 'jeans', 15.00, 'denim', 10),
+(7, 'pants', 15.00, 'black', 10),
+(8, 'purse', 20.00, 'white', 6),
+(9, 'tank top', 5.00, 'black', 13),
+(10, 'tennis shoes', 25.00, 'white', 10),
+(11, 'shorts', 12.00, 'black', 9),
+(12, 'bracelet', 10.00, 'multicolored', 5),
+(13, 'ring', 8.00, 'silver', 5),
+(14, 'watch', 22.00, 'gold', 9),
+(15, 'pajamas', 18.00, 'red', 10);
+SELECT * FROM store;
+
+--display the database ordered by price
+SELECT * FROM store
+ORDER BY price desc;
+
+--what is the avg price of items that are denim?
+SELECT AVG(price) "avg denim price"
+FROM store
+WHERE color='denim';
+
+--what are the 5 most expensive items?
+SELECT item, price
+FROM store
+ORDER BY price desc
+LIMIT 5;
+
+--what are the 5 least popular items?
+SELECT item, price
+FROM store
+ORDER BY price asc
+LIMIT 5;
