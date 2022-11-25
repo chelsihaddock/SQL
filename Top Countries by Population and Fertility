@@ -1,3 +1,30 @@
+#With this Top Countries by Population dataset, I was curious about the correlation between population and fertility rates. 
+
+SELECT * FROM countries
+LIMIT 20;
+
+--What are the 10 highest populated countries?
+SELECT name, population, percent_of_world_pop FROM countries
+ORDER BY population DESC
+LIMIT 10;
+
+--What are the 10 lowest populated countries?
+SELECT name, population, percent_of_world_pop FROM countries
+ORDER BY population ASC
+LIMIT 10;
+
+--How is fertility rate affected by child-bearing age(younger than 50)?
+SELECT name, median_age, fertility_rate FROM countries
+WHERE median_age <50
+ORDER BY fertility_rate DESC
+LIMIT 20;
+
+--Is there a correlation between population change and fertility rates? 
+SELECT name, population_change, fertility_rate FROM countries
+ORDER BY population_change DESC
+LIMIT 20;
+
+
 CREATE TABLE countries(
    name                    TEXT PRIMARY KEY,
    population              INTEGER,
@@ -212,26 +239,3 @@ INSERT INTO countries(name,population,percent_one_year_change,population_change,
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Seychelles',98347,0.62,608,214,460,-200,2.50,34.00,0);
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Antigua and Barbuda',97929,0.84,811,223,440,0,2.00,34.00,0);
 
-SELECT * FROM countries
-LIMIT 20;
-
---What are the 10 highest populated countries?
-SELECT name, population, percent_of_world_pop FROM countries
-ORDER BY population DESC
-LIMIT 10;
-
---What are the 10 lowest populated countries?
-SELECT name, population, percent_of_world_pop FROM countries
-ORDER BY population ASC
-LIMIT 10;
-
---How is fertility rate affected by child-bearing age(younger than 50)?
-SELECT name, median_age, fertility_rate FROM countries
-WHERE median_age <50
-ORDER BY fertility_rate DESC
-LIMIT 20;
-
---Is there a correlation between population change and fertility rates? 
-SELECT name, population_change, fertility_rate FROM countries
-ORDER BY population_change DESC
-LIMIT 20;
